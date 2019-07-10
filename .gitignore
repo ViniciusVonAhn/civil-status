@@ -33,4 +33,6 @@ build/
 .mvn/
 mvnw
 mvnw.cmd
+ojdbc10.jar
+
 

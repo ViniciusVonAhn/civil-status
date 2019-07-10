@@ -27,7 +27,7 @@ public class CivilStatusController {
     }
 
     @PostMapping
-    public CivilStatus save(@Valid CivilStatus civilStatus){
+    public CivilStatus save(@RequestBody @Valid CivilStatus civilStatus){
         return civilStatusService.save(civilStatus);
     }
 
