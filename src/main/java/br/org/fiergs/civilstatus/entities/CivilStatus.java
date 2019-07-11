@@ -7,7 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -22,11 +22,16 @@ public class CivilStatus {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seqCad_civilstatus")
     private Long id;
 
+    @Size(max = 20, message = "Chave deve ser menor que 21 caracteres")
+    private String key;
+
     @NotEmpty(message = "Nome é obrigatório")
+    @Size(max = 30, message = "Nome deve ter no maxímo 50 caracteres")
     private String name;
 
-    @NotNull(message = "Identificador é obrigatório")
-    private Long identifier;
+    @NotEmpty(message = "Identificador é obrigatório")
+    @Size(max = 11, message = "Código deve ter no maxímo 12 caracteres")
+    private String code;
 
-    private boolean status;
+    private boolean active = true;
 }
